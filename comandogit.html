@@ -1,111 +1,126 @@
-Guía Básica de Git - LENGUAJE PARA DESARROLLO WEB IUSH
-Introducción
-Git es un sistema de control de versiones distribuido que te permite rastrear cambios en archivos y coordinar el trabajo en esos archivos entre múltiples personas. Es una herramienta esencial para desarrollar software de manera colaborativa. Esta guía está diseñada para ayudarte a aprender los comandos básicos de Git de una manera clara y detallada.
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guía Básica de Git - LENGUAJE PARA DESARROLLO WEB IUSH</title>
+  <style>
+    :root{
+      --bg:#0f172a;         /* slate-900 */
+      --panel:#111827;      /* gray-900 */
+      --text:#e5e7eb;       /* gray-200 */
+      --muted:#9ca3af;      /* gray-400 */
+      --accent:#60a5fa;     /* blue-400 */
+      --code-bg:#0b1220;    /* deep dark */
+      --code-border:#1f2937;/* gray-800 */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6}
+    .wrap{max-width:980px;margin:auto;padding:28px 18px}
+    header{background:linear-gradient(180deg,rgba(96,165,250,.15),transparent);padding:28px 18px;border-radius:20px;border:1px solid #1f2937}
+    h1{margin:.2rem 0 0;font-size:clamp(1.6rem,2.5vw,2.2rem)}
+    .subtitle{color:var(--muted);margin-top:.35rem}
+    h2{font-size:1.35rem;margin:2.2rem 0 .6rem}
+    p{margin:.35rem 0 .9rem}
+    section{background:var(--panel);padding:18px;border-radius:16px;border:1px solid #1f2937;margin-top:16px}
+    code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+    pre{background:var(--code-bg);border:1px solid var(--code-border);border-radius:14px;padding:14px;overflow:auto}
+    pre code{color:#d1d5db;font-size:.95rem}
+    .kbd{display:inline-block;padding:.1rem .35rem;border:1px solid #374151;border-bottom-width:2px;border-radius:6px;background:#0b1220;font-size:.85em}
+    ul{margin:.2rem 0 1rem}
+    li{margin:.25rem 0}
+    a{color:var(--accent)}
+    footer{color:var(--muted);font-size:.92rem;margin-top:28px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Guía Básica de Git — LENGUAJE PARA DESARROLLO WEB IUSH</h1>
+      <p class="subtitle">Git es un sistema de control de versiones distribuido que te permite rastrear cambios y colaborar de forma segura. Esta guía resume los comandos esenciales con ejemplos breves.</p>
+    </header>
 
-Configuración Inicial
-Configurar el nombre de usuario y correo electrónico
-Estos datos se asocian a los commits que realices y son importantes para identificar quién hizo cada cambio.
+    <section>
+      <h2>Configuración Inicial</h2>
+      <p><strong>Configurar nombre de usuario y correo</strong></p>
+      <pre><code>git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@example.com"</code></pre>
+      <p><strong>Verificar la configuración</strong></p>
+      <pre><code>git config --list</code></pre>
+    </section>
 
-git config --global user.name "Tu Nombre"
-git config --global user.email "tuemail@example.com"
-Verificar la configuración
-Puedes verificar tu configuración actual para asegurarte de que todo esté correctamente configurado.
+    <section>
+      <h2>Crear y Administrar Repositorios</h2>
+      <p><strong>Inicializar un repositorio</strong></p>
+      <pre><code>git init</code></pre>
+      <p><strong>Clonar un repositorio existente</strong></p>
+      <pre><code>git clone &lt;url-del-repositorio&gt;</code></pre>
+    </section>
 
-git config --list
-Crear y Administrar Repositorios
-Inicializar un repositorio
-Este comando crea un nuevo repositorio de Git en el directorio donde se ejecuta.
+    <section>
+      <h2>Trabajando con Archivos</h2>
+      <p><strong>Ver el estado de los archivos</strong></p>
+      <pre><code>git status</code></pre>
+      <p><strong>Añadir archivos al área de preparación (staging area)</strong></p>
+      <pre><code>git add &lt;archivo&gt;  # Añadir un archivo específico
+git add .          # Añadir todos los archivos modificados</code></pre>
+      <p><strong>Realizar un commit</strong></p>
+      <pre><code>git commit -m "Mensaje del commit"</code></pre>
+      <p><strong>Ver el historial de commits</strong></p>
+      <pre><code>git log</code></pre>
+    </section>
 
-git init
-Clonar un repositorio existente
-Este comando crea una copia local de un repositorio remoto.
+    <section>
+      <h2>Trabajando con Ramas</h2>
+      <p><strong>Crear una nueva rama</strong></p>
+      <pre><code>git branch &lt;nombre-de-la-rama&gt;</code></pre>
+      <p><strong>Listar ramas</strong></p>
+      <pre><code>git branch</code></pre>
+      <p><strong>Cambiar a otra rama</strong></p>
+      <pre><code>git checkout &lt;nombre-de-la-rama&gt;</code></pre>
+      <p><strong>Crear y cambiar a una nueva rama</strong></p>
+      <pre><code>git checkout -b &lt;nombre-de-la-rama&gt;</code></pre>
+      <p><strong>Fusionar una rama con otra</strong></p>
+      <pre><code>git merge &lt;nombre-de-la-rama&gt;</code></pre>
+    </section>
 
-git clone <url-del-repositorio>
-Trabajando con Archivos
-Ver el estado de los archivos
-Muestra el estado de los archivos en el directorio de trabajo y el área de preparación (staging area).
+    <section>
+      <h2>Trabajando con Repositorios Remotos</h2>
+      <p><strong>Añadir un repositorio remoto</strong></p>
+      <pre><code>git remote add origin &lt;url-del-repositorio&gt;</code></pre>
+      <p><strong>Ver los repositorios remotos</strong></p>
+      <pre><code>git remote -v</code></pre>
+      <p><strong>Descargar cambios del remoto</strong></p>
+      <pre><code>git pull origin &lt;nombre-de-la-rama&gt;</code></pre>
+      <p><strong>Subir cambios al remoto</strong></p>
+      <pre><code>git push origin &lt;nombre-de-la-rama&gt;</code></pre>
+    </section>
 
-git status
-Añadir archivos al área de preparación (staging area)
-Agrega cambios de archivos al área de preparación, preparándolos para un commit.
+    <section>
+      <h2>Deshacer Cambios</h2>
+      <p><strong>Quitar archivo del staging (mantener cambios)</strong></p>
+      <pre><code>git reset &lt;archivo&gt;</code></pre>
+      <p><strong>Deshacer el último commit (mantener cambios)</strong></p>
+      <pre><code>git reset --soft HEAD~1</code></pre>
+      <p><strong>Descartar cambios en el área de trabajo</strong></p>
+      <pre><code>git checkout -- &lt;archivo&gt;</code></pre>
+    </section>
 
-git add <archivo> # Añadir un archivo específico
-git add .         # Añadir todos los archivos modificados
-Realizar un commit
-Guarda los cambios del área de preparación en el historial del repositorio.
+    <section>
+      <h2>Otras Utilidades</h2>
+      <p><strong>Ver diferencias</strong></p>
+      <pre><code>git diff</code></pre>
+      <p><strong>Crear una etiqueta (tag)</strong></p>
+      <pre><code>git tag -a v1.0 -m "Versión 1.0"</code></pre>
+      <p><strong>Ver todas las etiquetas</strong></p>
+      <pre><code>git tag</code></pre>
+      <p><strong>Subir etiquetas al remoto</strong></p>
+      <pre><code>git push origin --tags</code></pre>
+    </section>
 
-git commit -m "Mensaje del commit"
-Ver el historial de commits
-Muestra una lista de commits en el repositorio con detalles como el autor, la fecha y el mensaje del commit.
-
-git log
-Trabajando con Ramas
-Crear una nueva rama
-Las ramas permiten trabajar en diferentes versiones del proyecto simultáneamente.
-
-git branch <nombre-de-la-rama>
-Listar ramas
-Muestra todas las ramas en el repositorio, indicando en cuál te encuentras actualmente.
-
-git branch
-Cambiar a otra rama
-Cambia tu directorio de trabajo a la rama especificada.
-
-git checkout <nombre-de-la-rama>
-Crear y cambiar a una nueva rama
-Crea una nueva rama y cambia a ella en un solo paso.
-
-git checkout -b <nombre-de-la-rama>
-Fusionar una rama con otra
-Fusiona los cambios de la rama especificada en la rama actual.
-
-git merge <nombre-de-la-rama>
-Trabajando con Repositorios Remotos
-Añadir un repositorio remoto
-Vincula tu repositorio local con un repositorio remoto.
-
-git remote add origin <url-del-repositorio>
-Ver los repositorios remotos
-Muestra las URLs de los repositorios remotos asociados a tu repositorio local.
-
-git remote -v
-Descargar cambios del repositorio remoto
-Actualiza tu repositorio local con los cambios más recientes del repositorio remoto.
-
-git pull origin <nombre-de-la-rama>
-Subir cambios al repositorio remoto
-Envía tus commits locales al repositorio remoto.
-
-git push origin <nombre-de-la-rama>
-Deshacer Cambios
-Deshacer cambios en el área de preparación
-Quita un archivo del área de preparación, pero mantiene los cambios en el directorio de trabajo.
-
-git reset <archivo>
-Deshacer el último commit (manteniendo los cambios en el área de trabajo)
-Anula el último commit pero conserva los cambios en el área de trabajo para hacer un nuevo commit.
-
-git reset --soft HEAD~1
-Descartar cambios en el área de trabajo
-Revierte los cambios en un archivo, eliminando cualquier modificación no confirmada.
-
-git checkout -- <archivo>
-Otras Utilidades
-Ver diferencias entre commits
-Muestra las diferencias entre tu directorio de trabajo y el área de preparación, o entre commits.
-
-git diff
-Crear una etiqueta (tag)
-Las etiquetas se utilizan para marcar puntos específicos en la historia del proyecto, como versiones.
-
-git tag -a v1.0 -m "Versión 1.0"
-Ver todas las etiquetas
-Muestra todas las etiquetas en el repositorio.
-
-git tag
-Subir etiquetas al repositorio remoto
-Envía las etiquetas locales al repositorio remoto.
-
-git push origin --tags
-Conclusión
-Esta guía cubre los comandos básicos necesarios para empezar a utilizar Git. Practicar estos comandos te ayudará a familiarizarte con Git y a mejorar tu flujo de trabajo. Para más información y comandos avanzados, se recomienda consultar la documentación oficial de Git.
+    <footer>
+      <p><strong>Conclusión.</strong> Esta guía cubre los comandos básicos para empezar a usar Git. Practícalos con frecuencia y consulta la <a href="https://git-scm.com/docs" target="_blank" rel="noopener">documentación oficial</a> para temas avanzados.</p>
+    </footer>
+  </div>
+</body>
+</html>
