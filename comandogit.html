@@ -1,0 +1,111 @@
+Guía Básica de Git - LENGUAJE PARA DESARROLLO WEB IUSH
+Introducción
+Git es un sistema de control de versiones distribuido que te permite rastrear cambios en archivos y coordinar el trabajo en esos archivos entre múltiples personas. Es una herramienta esencial para desarrollar software de manera colaborativa. Esta guía está diseñada para ayudarte a aprender los comandos básicos de Git de una manera clara y detallada.
+
+Configuración Inicial
+Configurar el nombre de usuario y correo electrónico
+Estos datos se asocian a los commits que realices y son importantes para identificar quién hizo cada cambio.
+
+git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@example.com"
+Verificar la configuración
+Puedes verificar tu configuración actual para asegurarte de que todo esté correctamente configurado.
+
+git config --list
+Crear y Administrar Repositorios
+Inicializar un repositorio
+Este comando crea un nuevo repositorio de Git en el directorio donde se ejecuta.
+
+git init
+Clonar un repositorio existente
+Este comando crea una copia local de un repositorio remoto.
+
+git clone <url-del-repositorio>
+Trabajando con Archivos
+Ver el estado de los archivos
+Muestra el estado de los archivos en el directorio de trabajo y el área de preparación (staging area).
+
+git status
+Añadir archivos al área de preparación (staging area)
+Agrega cambios de archivos al área de preparación, preparándolos para un commit.
+
+git add <archivo> # Añadir un archivo específico
+git add .         # Añadir todos los archivos modificados
+Realizar un commit
+Guarda los cambios del área de preparación en el historial del repositorio.
+
+git commit -m "Mensaje del commit"
+Ver el historial de commits
+Muestra una lista de commits en el repositorio con detalles como el autor, la fecha y el mensaje del commit.
+
+git log
+Trabajando con Ramas
+Crear una nueva rama
+Las ramas permiten trabajar en diferentes versiones del proyecto simultáneamente.
+
+git branch <nombre-de-la-rama>
+Listar ramas
+Muestra todas las ramas en el repositorio, indicando en cuál te encuentras actualmente.
+
+git branch
+Cambiar a otra rama
+Cambia tu directorio de trabajo a la rama especificada.
+
+git checkout <nombre-de-la-rama>
+Crear y cambiar a una nueva rama
+Crea una nueva rama y cambia a ella en un solo paso.
+
+git checkout -b <nombre-de-la-rama>
+Fusionar una rama con otra
+Fusiona los cambios de la rama especificada en la rama actual.
+
+git merge <nombre-de-la-rama>
+Trabajando con Repositorios Remotos
+Añadir un repositorio remoto
+Vincula tu repositorio local con un repositorio remoto.
+
+git remote add origin <url-del-repositorio>
+Ver los repositorios remotos
+Muestra las URLs de los repositorios remotos asociados a tu repositorio local.
+
+git remote -v
+Descargar cambios del repositorio remoto
+Actualiza tu repositorio local con los cambios más recientes del repositorio remoto.
+
+git pull origin <nombre-de-la-rama>
+Subir cambios al repositorio remoto
+Envía tus commits locales al repositorio remoto.
+
+git push origin <nombre-de-la-rama>
+Deshacer Cambios
+Deshacer cambios en el área de preparación
+Quita un archivo del área de preparación, pero mantiene los cambios en el directorio de trabajo.
+
+git reset <archivo>
+Deshacer el último commit (manteniendo los cambios en el área de trabajo)
+Anula el último commit pero conserva los cambios en el área de trabajo para hacer un nuevo commit.
+
+git reset --soft HEAD~1
+Descartar cambios en el área de trabajo
+Revierte los cambios en un archivo, eliminando cualquier modificación no confirmada.
+
+git checkout -- <archivo>
+Otras Utilidades
+Ver diferencias entre commits
+Muestra las diferencias entre tu directorio de trabajo y el área de preparación, o entre commits.
+
+git diff
+Crear una etiqueta (tag)
+Las etiquetas se utilizan para marcar puntos específicos en la historia del proyecto, como versiones.
+
+git tag -a v1.0 -m "Versión 1.0"
+Ver todas las etiquetas
+Muestra todas las etiquetas en el repositorio.
+
+git tag
+Subir etiquetas al repositorio remoto
+Envía las etiquetas locales al repositorio remoto.
+
+git push origin --tags
+Conclusión
+Esta guía cubre los comandos básicos necesarios para empezar a utilizar Git. Practicar estos comandos te ayudará a familiarizarte con Git y a mejorar tu flujo de trabajo. Para más información y comandos avanzados, se recomienda consultar la documentación oficial de Git.
